@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'PTSerif',
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueAccent,
+          seedColor: const Color.fromRGBO(254, 206, 1, 1),
+          primary: const Color.fromRGBO(254, 206, 1, 1),
         ),
         inputDecorationTheme: const InputDecorationTheme(
           hintStyle: TextStyle(
