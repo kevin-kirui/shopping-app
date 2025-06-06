@@ -1,0 +1,53 @@
+final products = [
+  {
+    'id': '0',
+    'title': 'Men\'s Nike Shoes',
+    'price': 3400.52,
+    'imageUrl': 'assets/images/shoes_1.png',
+    'company': 'Nike',
+    'sizes': [9, 10, 11, 12],
+  },
+  {
+    'id': '1',
+    'title': 'Addidas Shoes',
+    'price': 3000.12,
+    'imageUrl': 'assets/images/shoes_2.png',
+    'company': 'Addidas',
+    'sizes': [9, 10, 12],
+  },
+  {
+    'id': '2',
+    'title': 'Jordan Shoes',
+    'price': 4200.69,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'Nike',
+    'sizes': [8, 9, 10],
+  },
+  {
+    'id': '3',
+    'title': 'Bata Women\'s Shoes',
+    'price': 2500.50,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'Bata',
+    'sizes': [8, 9, 10],
+  },
+  {
+    'id': '4',
+    'title': 'Puma Unisex Shoes',
+    'price': 3899.99,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'Puma',
+    'sizes': [8, 9, 10],
+  },
+];
+
+final cart = [
+   {
+    'id': '3',
+    'title': 'Bata Women\'s Shoes',
+    'price': 2500.50,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'Bata',
+    'sizes': [8, 9, 10],
+  },
+];
