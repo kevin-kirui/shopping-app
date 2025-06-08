@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class ProductDetailsPage extends StatelessWidget {
+class ProductDetailsPage extends StatefulWidget {
   final Map<String, Object> product;
   const ProductDetailsPage({
     super.key,
@@ -9,19 +9,28 @@ class ProductDetailsPage extends StatelessWidget {
   });
 
   @override
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  int selectedSize = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Details'),
+        title: Center(child: const Text('Details', style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),)),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(product['title'] as String, style:  Theme.of(context).textTheme.titleLarge,
+          Text(widget.product['title'] as String, style:  Theme.of(context).textTheme.titleLarge,
           ),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset(product['imageUrl'] as String),
+            child: Image.asset(widget.product['imageUrl'] as String),
           ),
           const Spacer(flex: 2),
           Container(
@@ -33,7 +42,7 @@ class ProductDetailsPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'KSHs ${product['price']}',
+                  'KSHs ${widget.product['price']}',
                   style:  Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 10),
@@ -41,13 +50,42 @@ class ProductDetailsPage extends StatelessWidget {
                   height: 50,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: (product['sizes'] as List<int>).length,
+                    itemCount: (widget.product['sizes'] as List<int>).length,
                     itemBuilder: (context, index) {
-                      final size = (product['sizes'] as List<int>)[index];
+                      final size = (widget.product['sizes'] as List<int>)[index];
                   
-                      return Chip(label: Text(size.toString()),
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              selectedSize = size;
+                            });
+                          },
+                          child: Chip(label: Text(size.toString()
+                          ),
+                          backgroundColor: selectedSize == size ? Theme.of(context).colorScheme.primary : null,
+                          ),
+                        ),
                       );
                     }
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    minimumSize: const Size(double.infinity, 50),
+                  ),
+                  child: const Text('Add to cart',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                   ),
                 ),
               ],
