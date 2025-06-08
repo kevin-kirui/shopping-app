@@ -34,19 +34,16 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const Row(
+             Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
+                 Padding(
+                  padding: const EdgeInsets.all(20.0),
                   child: Text(
                     'Shoes\nCollection',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 32,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                 Expanded(
+                 const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search',
@@ -107,6 +104,7 @@ class _HomePageState extends State<HomePage> {
                     title: product['title'] as String,
                     price: product['price'] as double,
                     image: product['imageUrl'] as String,
+                    backgroundColor: index.isEven ? const Color.fromRGBO(216, 240, 253, 1) : const Color.fromRGBO(245, 247, 249, 1),
                     );
                 }),
              ),
