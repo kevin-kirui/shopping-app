@@ -28,6 +28,9 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        iconSize: 32,
+        selectedFontSize: 0,
+        unselectedFontSize: 0,
         onTap: (value){
           setState(() {
             currentPage = value;
@@ -45,7 +48,10 @@ class _HomePageState extends State<HomePage> {
       ),
     ],
   ),
-      body: pages[currentPage],
+      body: IndexedStack(
+        index: currentPage,
+        children: pages,
+      ),
     );
   }
 }

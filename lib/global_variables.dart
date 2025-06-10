@@ -40,14 +40,3 @@ final products = [
     'sizes': [8, 9, 10],
   },
 ];
-
-final cart = [
-   {
-    'id': '3',
-    'title': 'Bata Women\'s Shoes',
-    'price': 2500.50,
-    'imageUrl': 'assets/images/shoes_4.png',
-    'company': 'Bata',
-    'sizes': [8, 9, 10],
-  },
-];
